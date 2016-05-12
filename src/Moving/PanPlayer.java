@@ -66,8 +66,10 @@ public class PanPlayer {
             dx = SPEED;
         } else if (code == KeyEvent.VK_W) {
             SPEED = SPEED + 5;
+            System.out.println(SPEED);
         } else if (code == KeyEvent.VK_S) {
             SPEED = SPEED - 5;
+            System.out.println(SPEED);
         }
 
     }
