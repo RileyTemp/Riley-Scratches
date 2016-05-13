@@ -6,28 +6,50 @@ import java.awt.event.*;
 
 public class PanSpeed extends JPanel {
 
-    JButton btnSpeed;
-    int Speed = 15;
-    PanPlayer panPlayer;
+    PanDemo panDemo;
 
-    public PanSpeed(PanPlayer _panPlayer) {
-        panPlayer = _panPlayer;
+    public PanSpeed(PanDemo _panDemo) {
+        panDemo = _panDemo;
+        setLayout(new GridLayout(2, 3));
         ActionListener speedChanger = new SpeedChanger();
+        ActionListener mover = new Mover();
         JLabel lblname = new JLabel("Speed Change");
-        JButton btnUp = new JButton("Speed up");
-        JButton btnDown = new JButton("Slow down");
+        JButton btnSpeedUp = new JButton("Speed up");
+        JButton btnSlowDown = new JButton("Slow down");
+        JLabel filler = new JLabel("");
+        JButton btnUp = new JButton("Up");
+        JButton btnDown = new JButton("Down");
+        JButton btnLeft = new JButton("Left");
+        JButton btnRight = new JButton("Right");
         add(lblname);
+        add(btnSpeedUp);
+        add(btnSlowDown);
+        add(filler);
         add(btnUp);
         add(btnDown);
-        btnUp.addActionListener(speedChanger);
-        btnDown.addActionListener(speedChanger);
+        add(btnLeft);
+        add(btnRight);
+        btnSpeedUp.addActionListener(speedChanger);
+        btnSlowDown.addActionListener(speedChanger);
+        btnUp.addActionListener(mover);
+        btnDown.addActionListener(mover);
+        btnLeft.addActionListener(mover);
+        btnRight.addActionListener(mover);
     }
 
     class SpeedChanger implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
             String s = e.getActionCommand();
-            panPlayer.Speed(s);
+            panDemo.SpeedChange(s);
+        }
+    }
+
+    class Mover implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            String s = e.getActionCommand();
+            panDemo.Move(s);
         }
     }
 }

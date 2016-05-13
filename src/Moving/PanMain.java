@@ -5,13 +5,12 @@ import java.awt.*;
 
 public class PanMain extends JPanel {
 
-    PanPlayer panPlayer = new PanPlayer();
-    PanSpeed panSpeed = new PanSpeed(panPlayer);
-    PanBackground panBackground = new PanBackground(panSpeed, panPlayer);
+    PanDemo panDemo = new PanDemo();
+    PanSpeed panSpeed = new PanSpeed(panDemo);
 
     public PanMain() {
         setLayout(new BorderLayout());
         add(panSpeed, BorderLayout.SOUTH);
-        add(panBackground, BorderLayout.CENTER);
+        add(panDemo, BorderLayout.CENTER);
     }
 }
