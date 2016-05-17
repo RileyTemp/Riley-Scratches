@@ -1,11 +1,8 @@
-package Moving;
+package KeyListenerMovement;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 public class PanDemo extends JPanel implements ActionListener {
 
@@ -26,8 +23,6 @@ public class PanDemo extends JPanel implements ActionListener {
         background = i1.getImage();
         timer = new Timer(80, this);
         timer.start();
-        System.out.println(sprPlayer.x);
-        System.out.println(sprPlayer.y);
     }
 
     public void actionPerformed(ActionEvent arg0) {
@@ -43,41 +38,30 @@ public class PanDemo extends JPanel implements ActionListener {
         g2d.drawImage(sprPlayer.getImage(), sprPlayer.getX(), sprPlayer.getY(), null);
     }
 
-    void SpeedChange(String _s) {
-        String Change = _s;
-        if (Change.equals("Speed up")) {
-            Speed += 5;
-        } else if (Change.equals("Slow down")) {
-            Speed -= 5;
-        }
-        if (Speed < 0) {
-            Speed = 5;
-        }
-    }
-
-    void Move(String _s) {
-        String Move = _s;
-        if (Move.equals("Left")) {
-            dx = -Speed;
-            sprPlayer.x += dx;
-        } else if (Move.equals("Right")) {
-            dx = Speed;
-            sprPlayer.x += dx;
-        } else if (Move.equals("Up")) {
-            dy = -Speed;
-            sprPlayer.y += dy;
-        } else if (Move.equals("Down")) {
-            dy = Speed;
-            sprPlayer.y += dy;
-        }
-    }
-
+    /* void Move(String _s) {
+     String Move = _s;
+     if (Move.equals("Left")) {
+     dx = -Speed;
+     sprPlayer.x += dx;
+     } else if (Move.equals("Right")) {
+     dx = Speed;
+     sprPlayer.x += dx;
+     } else if (Move.equals("Up")) {
+     dy = -Speed;
+     sprPlayer.y += dy;
+     } else if (Move.equals("Down")) {
+     dy = Speed;
+     sprPlayer.y += dy;
+     }
+     }*/
     private class Movement extends KeyAdapter {
 
         @Override
         public void keyReleased(KeyEvent w) {
             dy = 0;
             dx = 0;
+            System.out.println(sprPlayer.x);
+            System.out.println(sprPlayer.y);
         }
 
         @Override
@@ -86,19 +70,48 @@ public class PanDemo extends JPanel implements ActionListener {
             if (code == KeyEvent.VK_A) {
                 dx = -Speed;
                 sprPlayer.x += dx;
+                if (sprPlayer.x <= -245) {
+                    sprPlayer.x = 1000;
+                }
             } else if (code == KeyEvent.VK_D) {
                 dx = Speed;
                 sprPlayer.x += dx;
+                if (sprPlayer.x >= 1000) {
+                    sprPlayer.x = -255;
+                }
             } else if (code == KeyEvent.VK_W) {
                 dy = -Speed;
                 sprPlayer.y += dy;
+                if (sprPlayer.y <= -220) {
+                    sprPlayer.y = 650;
+                }
             } else if (code == KeyEvent.VK_S) {
                 dy = Speed;
                 sprPlayer.y += dy;
+                if (sprPlayer.y >= 650) {
+                    sprPlayer.y = -220;
+                }
             }
         }
     }
 
     void display(int n) {
+    }
+
+    void SpeedChange(String _s) {
+        String Change = _s;
+        if (Change.equals("Speed up")) {
+            Speed += 1;
+            System.out.println(Speed);
+        } else if (Change.equals("Slow down")) {
+            Speed -= 1;
+            System.out.println(Speed);
+        }
+        if (Speed < 0) {
+            Speed = 1;
+        }
+        if (Speed > 10) {
+            Speed = 10;
+        }
     }
 }
