@@ -27,7 +27,7 @@ public class PanDemo extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent arg0) {
 
-        sprPlayer.move();
+        //sprPlayer.move();
         repaint();
     }
 
@@ -60,8 +60,6 @@ public class PanDemo extends JPanel implements ActionListener {
         public void keyReleased(KeyEvent w) {
             dy = 0;
             dx = 0;
-            System.out.println(sprPlayer.x);
-            System.out.println(sprPlayer.y);
         }
 
         @Override

@@ -49,7 +49,7 @@ public class PanSpeed extends JPanel {
 
         public void actionPerformed(ActionEvent e) {
             String s = e.getActionCommand();
-            //panDemo.Move(s);
+            panDemo.Move(s);
         }
     }
 }
