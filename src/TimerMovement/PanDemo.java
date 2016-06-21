@@ -18,7 +18,7 @@ public class PanDemo extends JPanel implements ActionListener {
     int dx, dy;
     int Speed = 5;
     PanTimer panTimer;
-    String s;
+    String sDir;
     int nCount = 0;
     String sSame = "h";
 
@@ -60,12 +60,12 @@ public class PanDemo extends JPanel implements ActionListener {
             int code = w.getKeyCode();
             System.out.println(sSame);
             if (code == KeyEvent.VK_A) {
-                s = "a";
-                if (!sSame.equals(s)) {
+                sDir = "a";
+                if (!sSame.equals(sDir)) {
                     Speed = 5;
                 }
-                sSame = s;
-                panTimer.start(s);
+                sSame = sDir;
+                panTimer.start(sDir);
                 dx = -Speed;
                 sprPerson.setX(dx);
                 if (panTimer.nCount > nCount) {
@@ -73,12 +73,12 @@ public class PanDemo extends JPanel implements ActionListener {
                     nCount = panTimer.nCount;
                 }
             } else if (code == KeyEvent.VK_D) {
-                s = "d";
-                if (!sSame.equals(s)) {
+                sDir = "d";
+                if (!sSame.equals(sDir)) {
                     Speed = 5;
                 }
-                sSame = s;
-                panTimer.start(s);
+                sSame = sDir;
+                panTimer.start(sDir);
                 dx = Speed;
                 sprPerson.setX(dx);
                 if (panTimer.nCount > nCount) {
@@ -86,12 +86,12 @@ public class PanDemo extends JPanel implements ActionListener {
                     nCount = panTimer.nCount;
                 }
             } else if (code == KeyEvent.VK_W) {
-                s = "w";
-                if (!sSame.equals(s)) {
+                sDir = "w";
+                if (!sSame.equals(sDir)) {
                     Speed = 5;
                 }
-                sSame = s;
-                panTimer.start(s);
+                sSame = sDir;
+                panTimer.start(sDir);
                 dy = -Speed;
                 sprPerson.setY(dy);
                 if (panTimer.nCount > nCount) {
@@ -99,12 +99,12 @@ public class PanDemo extends JPanel implements ActionListener {
                     nCount = panTimer.nCount;
                 }
             } else if (code == KeyEvent.VK_S) {
-                s = "s";
-                if (!sSame.equals(s)) {
+                sDir = "s";
+                if (!sSame.equals(sDir)) {
                     Speed = 5;
                 }
-                sSame = s;
-                panTimer.start(s);
+                sSame = sDir;
+                panTimer.start(sDir);
                 dy = Speed;
                 sprPerson.setY(dy);
                 if (panTimer.nCount > nCount) {
